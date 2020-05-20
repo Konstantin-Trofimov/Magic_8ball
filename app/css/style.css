@@ -1,0 +1,39 @@
+.grids {
+    display: grid;
+    grid-template-columns: 1fr 4fr 1fr;
+    grid-template-rows: 700px 700px 700px;
+}
+
+.content {
+    text-align: center;
+    margin: 50px;
+}
+
+#ball,  #ballImg, #ballCenter {
+
+    border-radius: 50% 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}
+
+#ballImg {
+    height: 600px;
+    width: 600px;
+}
+
+#ballCenter {
+    height: 300px;
+    width: 300px;
+}
+
+#text {
+    color: bisque;
+    text-align: center;
+    margin: 25%;
+    margin-top: 40%;
+    font-size: 18;
+    opacity: 0.0;      
+}
