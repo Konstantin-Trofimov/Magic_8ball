@@ -1,19 +1,27 @@
-function init() {
-    let ball = document.getElementById('ball');
+const ball = document.querySelector('.ball');
+let leng = '';
 
-    ball.onclick = function () {
+function init() {
+    ball.onclick = () => {
+        switchLeng();
         shake();
         removeContent();
         setTimeout(getAnswer, 800);
     }
 
-    ball.oncontextmenu = function () {
+    ball.oncontextmenu = () => {
         return false;
     }
 
-    ball.onmousedown = function () {
+    ball.onmousedown = () => {
         return false;
     }
+}
+
+function switchLeng() {
+    let radio = document.querySelector('.switch');
+    if (radio.checked) leng = 'eng';
+    else leng = 'rus';
 }
 
 function shake() {
@@ -35,11 +43,11 @@ function removeContent() {
 
 function getAnswer() {
     let rand = db.list[Math.floor(Math.random() * db.list.length)];
-    addAnswer(db.answers[rand]);
+    addAnswer(db.answers[leng][rand]);
 }
 
 function addAnswer(content) {
-    document.getElementById('triangle').innerHTML = content;
+    document.querySelector('.ball-center').innerHTML = content;
     setTimeout(seeming, 250);
 }
 
@@ -60,7 +68,7 @@ function seeming() {
     showText();
 }
 
-document.onload = init();
+init();
 
 
 
