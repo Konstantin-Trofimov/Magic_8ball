@@ -3,7 +3,7 @@
 }
 
 .header {
-    width: 700px;
+    width: 675px;
     height: 25px;
     text-align: end;
 }
@@ -52,6 +52,10 @@
     top: -1px;
     z-index: 1;
     transition-duration: 300ms;
+}
+
+.ball {
+    cursor: pointer;
 }
 
 .ball, .ball-img, .ball-center {

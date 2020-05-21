@@ -3,9 +3,9 @@ let leng = '';
 
 function init() {
     ball.onclick = () => {
+        document.getElementById('text').remove();
         switchLeng();
         shake();
-        removeContent();
         setTimeout(getAnswer, 800);
     }
 
@@ -19,8 +19,8 @@ function init() {
 }
 
 function switchLeng() {
-    let radio = document.querySelector('.switch');
-    if (radio.checked) leng = 'eng';
+    let chbox = document.querySelector('.switch');
+    if (chbox.checked) leng = 'eng';
     else leng = 'rus';
 }
 
@@ -37,17 +37,15 @@ function move(index, time) {
     }, time);
 }
 
-function removeContent() {
-    document.getElementById('text').remove();
-}
-
 function getAnswer() {
-    let rand = db.list[Math.floor(Math.random() * db.list.length)];
-    addAnswer(db.answers[leng][rand]);
+    let answer = 'answer';
+    answer += Math.round(1 - 0.5 + Math.random() * (20 - 1 + 1));
+    addAnswer(db.answers[leng][answer]);
 }
 
 function addAnswer(content) {
-    document.querySelector('.ball-center').innerHTML = content;
+    let out = `<div id="text">${content}</div>`
+    document.querySelector('.ball-center').innerHTML = out;
     setTimeout(seeming, 250);
 }
 
